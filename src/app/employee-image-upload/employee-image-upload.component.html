@@ -1,0 +1,45 @@
+<div class="upload-container">
+  <h3 class="heading">Start uploading images (.zip) Of employees</h3>
+
+  <div class="file-upload-container">
+    <label class="label">Employee Image</label>
+
+    <div class="drop-zone">
+      <input type="file" id="Image" (change)="onFileSelected($event)" #Image />
+      <div>
+        <p (click)="triggerFileInputClick(0)">
+          {{ fileDetails?.fileName }}
+          <label id="button-label">{{
+            fileDetails?.buttonName || "Select file"
+          }}</label>
+        </p>
+      </div>
+    </div>
+
+    <div class="error-message">{{ fileDetails?.errorMessage }}</div>
+  </div>
+  <div class="button-container">
+    <button
+      type="button"
+      mat-raised-button
+      color="basic"
+      (click)="resetForm()"
+      [disabled]="isLoading"
+    >
+      Reset
+    </button>
+    <span class="button-spacing"></span>
+    <button
+      type="submit"
+      mat-raised-button
+      color="primary"
+      (click)="uploadFile()"
+      [disabled]="isLoading"
+    >
+      File Upload
+    </button>
+
+    <div *ngIf="uploadSuccess">File uploaded successfully!</div>
+  </div>
+</div>
+

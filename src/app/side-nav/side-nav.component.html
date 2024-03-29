@@ -1,0 +1,45 @@
+<mat-toolbar class="example-toolbar">
+  <img alt="My image name" src="./assets/logo.png" />
+</mat-toolbar>
+<mat-sidenav-container class="example-container" autosize>
+  <mat-sidenav
+    #sidenav
+    class="example-sidenav"
+    mode="side"
+    opened="true"
+    (mouseenter)="mouseenter()"
+    (mouseleave)="mouseleave()"
+  >
+    <mat-nav-list>
+      <!-- <mat-list-item class="parent border-menu">
+        <a routerLinkActive="active" [routerLink]="['/survey-upload']">
+          Survey Upload</a
+        >
+      </mat-list-item> -->
+
+      <mat-list-item class="parent border-menu">
+        <a [routerLink]="['/employee-image-upload']">Employee Image Upload</a>
+      </mat-list-item>
+
+      <mat-list-item class="parent border-menu">
+        <a [routerLink]="['/employee-details-upload']"
+          >Employee Details Upload</a
+        >
+      </mat-list-item>
+      <mat-list-item class="parent border-menu">
+        <a [routerLink]="['/score-history-upload']">Score History</a>
+      </mat-list-item>
+      <mat-list-item class="parent border-menu">
+        <a routerLinkActive="active" [routerLink]="['/survey-upload']">
+          Survey Upload</a
+        >
+      </mat-list-item>
+      <mat-list-item>
+        <a routerLinkActive="active" [routerLink]="['/generate-report']">
+          Reports</a
+        >
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
+  <div><router-outlet></router-outlet></div>
+</mat-sidenav-container>

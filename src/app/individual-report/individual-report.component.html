@@ -1,0 +1,67 @@
+<div class="upload-container">
+  <h3 class="heading">Please download files for employees</h3>
+  <mat-form-field appearance="outline" class="heading drop-zone">
+    <mat-label>Type of Report</mat-label>
+    <mat-select [(ngModel)]="typeOfReport" (selectionChange)="changeReport()">
+      <mat-option value="Survey">Survey</mat-option>
+      <mat-option value="Individual">Individual</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <div class="file-upload-container" *ngIf="typeOfReport == 'Individual'">
+    <label class="label">Survey Name</label>
+    <div class="drop-zone">
+      <mat-form-field appearance="outline" class="mt-width">
+        <input matInput id="surveyname" [(ngModel)]="surveyName" />
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="data">
+    <label class="label" *ngIf="typeOfReport == 'Individual'"
+      >Employee Id</label
+    >
+    <div class="drop-zone" *ngIf="typeOfReport == 'Individual'">
+      <mat-form-field appearance="outline" class="mt-width">
+        <input matInput id="data" type="number" [(ngModel)]="empId" required />
+      </mat-form-field>
+    </div>
+    <div class="drop-zone mg-btm" *ngIf="typeOfReport == 'Survey'">
+      <label>Survey Name</label>
+
+      <mat-form-field appearance="outline" class="mt-width">
+        <input matInput id="surveyname" [(ngModel)]="surveyNm" />
+      </mat-form-field>
+    </div>
+    <div class="button-container" *ngIf="typeOfReport">
+      <button
+        type="button"
+        mat-raised-button
+        color="basic"
+        (click)="resetForm()"
+        [disabled]="isLoading"
+      >
+        Reset
+      </button>
+      <span class="button-spacing"></span>
+      <button
+        type="submit"
+        mat-raised-button
+        color="primary"
+        (click)="uploadFile()"
+        [disabled]="!empId || !surveyName"
+        *ngIf="typeOfReport == 'Individual'"
+      >
+        Generate Report
+      </button>
+      <button
+        type="submit"
+        mat-raised-button
+        color="primary"
+        (click)="uploadFile()"
+        [disabled]="!surveyNm"
+        *ngIf="typeOfReport == 'Survey'"
+      >
+        Generate Report
+      </button>
+    </div>
+  </div>
+</div>

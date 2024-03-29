@@ -1,0 +1,81 @@
+.reportee-zone {
+  border: 1px dashed #ccc;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 4px;
+  width: 306px;
+  height: 25px;
+  margin-left: 60px;
+}
+.drop-zone {
+  border: 1px dashed #ccc;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 4px;
+  width: 306px;
+  height: 25px;
+  margin-left: 40px;
+}
+
+#Reportees,
+#Seff,
+#Peer,
+#Managers {
+  display: none;
+}
+
+.dot {
+  height: 38px;
+  width: 38px;
+  background-color: #005096;
+  border-radius: 100px;
+  display: inline-block;
+  color: white;
+  font-size: 21 px;
+  line-height: 38px;
+  text-align: center;
+  padding-bottom: auto;
+  margin-right: 20px;
+}
+.error-message {
+  color: red;
+}
+.button-spacing {
+  margin-right: 10px;
+}
+.dot-green {
+  background-color: green;
+  color: white;
+}
+
+.line {
+  border-left: 2px dashed grey;
+  height: 100%;
+  margin-left: 15px;
+  margin-top: 10px;
+}
+
+.file-upload-container {
+  margin-top: 20px;
+}
+
+.button-container {
+  margin-top: 50px;
+  margin-left: 60px;
+}
+
+.upload-container {
+  padding-left: 50px;
+}
+
+.heading {
+  padding-top: 20px;
+}
+
+.label {
+  font-size: 14px;
+}
+
+#button-label {
+  float: right;
+}

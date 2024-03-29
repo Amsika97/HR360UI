@@ -1,0 +1,81 @@
+<mat-grid-list cols="2" rowHeight="2:1">
+  <mat-grid-tile
+    ><div>
+      <h3 class="heading">Start uploading score history (.xls) of employees</h3>
+
+      <div class="file-upload-container">
+        <label class="label">Score History</label>
+
+        <div class="drop-zone">
+          <input
+            type="file"
+            id="Score"
+            (change)="onFileSelected($event)"
+            #Score
+          />
+          <div>
+            <p (click)="triggerFileInputClick(0)">
+              {{ fileDetails?.fileName }}
+              <label id="button-label">{{
+                fileDetails?.buttonName || "Select file"
+              }}</label>
+            </p>
+          </div>
+        </div>
+
+        <div class="error-message">{{ fileDetails?.errorMessage }}</div>
+      </div>
+      <div class="button-container">
+        <button
+          type="button"
+          mat-raised-button
+          color="basic"
+          (click)="resetForm()"
+          [disabled]="isLoading"
+        >
+          Reset
+        </button>
+        <span class="button-spacing"></span>
+        <button
+          type="submit"
+          mat-raised-button
+          color="primary"
+          (click)="uploadFile()"
+          [disabled]="isLoading"
+        >
+          <mat-icon>file_upload</mat-icon> File Upload
+        </button>
+
+        <!-- <div *ngIf="uploadSuccess">File uploaded successfully!</div> -->
+      </div>
+    </div>
+  </mat-grid-tile>
+
+  <mat-grid-tile>
+    <mat-grid-tile-header class="download-btn">
+      <p>
+        Please download the Absolute score and the Percentile information of all the
+        surveys done so far, including the data of the latest survey.
+      </p>
+    </mat-grid-tile-header>
+    <div class="btn-div">
+      <button
+        type="button"
+        mat-raised-button
+        color="primary"
+        (click)="downloadFile('Absolute Score')"
+      >
+        <mat-icon>get_app</mat-icon> Absolute Score
+      </button>
+      <button
+        type="button"
+        mat-raised-button
+        color="primary"
+        class="btn-padding"
+        (click)="downloadFile('Percentile')"
+      >
+        <mat-icon>get_app</mat-icon> Percentile
+      </button>
+    </div>
+  </mat-grid-tile>
+</mat-grid-list>

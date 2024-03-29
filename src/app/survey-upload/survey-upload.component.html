@@ -1,0 +1,142 @@
+<div class="upload-container">
+  <h3 class="heading">
+    Let's start with uploading files (.xls) to generate a report!
+  </h3>
+  <!-- Manager Report -->
+  <div class="file-upload-container">
+    <div class="file-upload">
+      <div class="dot" [ngClass]="{ 'dot-green': files[0].isFileSelected }">
+        1
+      </div>
+      <label class="label">Managers Report</label>
+      <div class="line">
+        <div class="drop-zone">
+          <input
+            type="file"
+            id="Managers"
+            (change)="onFileSelected($event, 0)"
+            #Managers
+          />
+          <div>
+            <p (click)="triggerFileInputClick(0)">
+              {{ files[0].fileName }}
+              <label id="button-label">{{
+                files[0].buttonName || "Select file"
+              }}</label>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="error-message">{{ files[0].errorMessage }}</div>
+    </div>
+    <!-- Peer Report -->
+    <div class="file-upload-container">
+      <div class="file-upload">
+        <div class="dot" [ngClass]="{ 'dot-green': files[1].isFileSelected }">
+          2
+        </div>
+        <label class="label">Peer Report</label>
+        <div class="line">
+          <div class="drop-zone">
+            <input
+              type="file"
+              id="Peer"
+              (change)="onFileSelected($event, 1)"
+              #Peer
+            />
+            <div>
+              <p (click)="triggerFileInputClick(1)">
+                {{ files[1].fileName }}
+                <label id="button-label">{{
+                  files[1].buttonName || "Select file"
+                }}</label>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="error-message">{{ files[1].errorMessage }}</div>
+      </div>
+
+      <!-- Seff Report -->
+
+      <div class="file-upload-container">
+        <div class="file-upload">
+          <div class="dot" [ngClass]="{ 'dot-green': files[2].isFileSelected }">
+            3
+          </div>
+          <label class="label">Self Report</label>
+          <div class="line">
+            <div class="drop-zone">
+              <input
+                type="file"
+                id="Seff"
+                (change)="onFileSelected($event, 2)"
+                #Seff
+              />
+              <div>
+                <p (click)="triggerFileInputClick(2)">
+                  {{ files[2].fileName }}
+                  <label id="button-label">{{
+                    files[2].buttonName || "Select file"
+                  }}</label>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="error-message">{{ files[2].errorMessage }}</div>
+        </div>
+        <!-- Reportees Report -->
+        <div class="file-upload-container">
+          <div class="file-upload">
+            <div
+              class="dot"
+              [ngClass]="{ 'dot-green': files[3].isFileSelected }"
+            >
+              4
+            </div>
+            <label class="label">Reportees Report</label>
+
+            <div class="reportee-zone">
+              <input
+                type="file"
+                id="Reportees"
+                (change)="onFileSelected($event, 3)"
+                #Reportees
+              />
+              <div>
+                <p (click)="triggerFileInputClick(3)">
+                  {{ files[3].fileName }}
+                  <label id="button-label">{{
+                    files[3].buttonName || "Select file"
+                  }}</label>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="error-message">{{ files[3].errorMessage }}</div>
+        </div>
+      </div>
+    </div>
+    <div class="button-container">
+      <button
+        type="button"
+        mat-raised-button
+        color="basic"
+        (click)="resetForm()"
+      >
+        Reset
+      </button>
+      <span class="button-spacing"></span>
+      <button
+        type="submit"
+        mat-raised-button
+        color="primary"
+        [disabled]="!allFilesSelected()"
+        (click)="uploadFile(0, $event)"
+      >
+        Upload Data
+      </button>
+      <!-- <div *ngIf="uploadSuccess">File uploaded successfully!</div> -->
+    </div>
+  </div>
+</div>
